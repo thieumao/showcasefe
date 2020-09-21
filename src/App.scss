@@ -1,0 +1,49 @@
+$gray-blur-color: #F7F7F7;
+$pink-color: #FF3366;
+$main-color: #3A5997;
+$second-color: #EBEDF0;
+$text-color: #333;
+
+body {
+  font-family: sans-serif;
+  color: $text-color;
+}
+
+#menu ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  background: $main-color;
+  text-align: left;
+}
+
+#menu ul li {
+  color: $second-color;
+  display: inline-table;
+  width: 128px;
+  height: 48px;
+  line-height: 48px;
+  position: relative;
+  text-align: center;
+}
+
+#menu ul li a {
+  color: $second-color;
+  text-decoration: none;
+  display: block;
+}
+
+#menu ul li a:hover {
+  background: $second-color;
+  color: $text-color;
+}
+
+
+#menu ul li > .sub-menu {
+  display: none;
+  position: absolute;
+}
+
+#menu ul li:hover > .sub-menu {
+  display: block;
+}

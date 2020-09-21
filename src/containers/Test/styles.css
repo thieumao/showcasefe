@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+
+#menu ul {
+  list-style-type: none;
+  background: #1F568B;
+  text-align: center;
+}
+
+#menu ul li {
+  color: #F1F1F1;
+  display: inline-table;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+}
+
+#menu ul li a {
+  color: #F1F1F1;
+  text-decoration: none;
+  display: block;
+}
+
+#menu ul li a:hover {
+  background: #F1F1F1;
+  color: #333;
+}
+
+
+#menu ul li > .sub-menu {
+  display: none;
+  position: absolute;
+}
+
+#menu ul li:hover > .sub-menu {
+  display: block;
+}

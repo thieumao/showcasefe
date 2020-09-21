@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Introduction from "./containers/Introduction";
+import CaseStudyList from "./containers/CaseStudyList";
+import Topics from "./containers/Topics";
+import "./App.scss";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div id="menu">
+        <ul>
+          <li>
+            <Link to="/">
+              <b>Introduction</b>
+            </Link>
+          </li>
+          <li>
+            <b>Projects</b>
+            <ul class="sub-menu">
+              <li>
+              <Link to="/projects">
+              <b>All</b>
+            </Link>
+              </li>
+              <li>
+              <Link to="/topics">
+              <b>EPI Server</b>
+            </Link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <p>
+        <Switch>
+          <Route path="/projects">
+            <CaseStudyList />
+          </Route>
+          <Route path="/topics">
+            <Topics />
+          </Route>
+          <Route path="/">
+            <Introduction />
+          </Route>
+        </Switch>
+      </p>
+    </Router>
   );
-}
+};
 
 export default App;
