@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import Introduction from "./containers/Introduction";
 import CaseStudyList from "./containers/CaseStudyList";
+import EPIList from "./containers/EPIList";
 import CaseStudyDetail from "./containers/CaseStudyDetail";
 import Topics from "./containers/Topics";
 import "./App.scss";
@@ -25,8 +26,13 @@ const App = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/topics">
+                <Link to="/epi">
                   <b>EPI Server</b>
+                </Link>
+              </li>
+              <li>
+                <Link to="/topics">
+                  <b>Topics</b>
                 </Link>
               </li>
             </ul>
@@ -40,6 +46,9 @@ const App = () => {
           </Route>
           <Route path="/projects">
             <CaseStudyList />
+          </Route>
+          <Route path="/epi">
+            <EPIList />
           </Route>
           <Route path="/topics">
             <Topics />

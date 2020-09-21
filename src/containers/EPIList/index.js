@@ -3,17 +3,18 @@ import projectAPI from "../../api/projectAPI";
 import Project from './shared/Project';
 import { useHistory } from "react-router-dom";
 
-const EPIList = () => {
+const CaseStudyList = () => {
   const history = useHistory();
   const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
-    console.log("EPIList");
+    console.log("CaseStudyList");
     try {
       projectAPI.getAll().then((data) => {
         console.log(data);
         const caseStudies = data && data.caseStudies ? data.caseStudies : [];
-        setProjectList(caseStudies);
+        const list = caseStudies.filter(item => item.group_mask == 1); 
+        setProjectList(list);
       });
     } catch (error) {}
   }, []);
@@ -35,10 +36,10 @@ const EPIList = () => {
   ));
   return (
     <div id="container">
-      <h1>Case Study List</h1>
+      <h1>EPI Server List</h1>
       <ul className="project-list">{listItems}</ul>
     </div>
   );
 };
 
-export default EPIList;
+export default CaseStudyList;
