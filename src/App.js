@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import Introduction from "./containers/Introduction";
 import CaseStudyList from "./containers/CaseStudyList";
+import CaseStudyDetail from "./containers/CaseStudyDetail";
 import Topics from "./containers/Topics";
 import "./App.scss";
 
@@ -19,14 +20,14 @@ const App = () => {
             <b>Projects</b>
             <ul class="sub-menu">
               <li>
-              <Link to="/projects">
-              <b>All</b>
-            </Link>
+                <Link to="/projects">
+                  <b>All</b>
+                </Link>
               </li>
               <li>
-              <Link to="/topics">
-              <b>EPI Server</b>
-            </Link>
+                <Link to="/topics">
+                  <b>EPI Server</b>
+                </Link>
               </li>
             </ul>
           </li>
@@ -34,6 +35,9 @@ const App = () => {
       </div>
       <p>
         <Switch>
+          <Route path={`/detail/:projectID`}>
+            <CaseStudyDetail />
+          </Route>
           <Route path="/projects">
             <CaseStudyList />
           </Route>

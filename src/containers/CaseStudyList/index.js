@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
 import projectAPI from "../../api/projectAPI";
 import Project from './shared/Project';
+import { useHistory } from "react-router-dom";
 
 const CaseStudyList = () => {
+  const history = useHistory();
   const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
-    console.log("Thieu Mao");
+    console.log("CaseStudyList");
     try {
       projectAPI.getAll().then((data) => {
         console.log(data);
         const caseStudies = data && data.caseStudies ? data.caseStudies : [];
         setProjectList(caseStudies);
       });
-      // / cs_episerver0.json
-      // projectAPI.get('cs_episerver0').then(data => {
-      //   console.log(data);
-      // });
     } catch (error) {}
   }, []);
 
   const itemClick = (item, index) => {
     console.log(index);
     console.log(item);
+    history.push(`/detail/${item.id}`);
   }
 
   // group_mask: 2
