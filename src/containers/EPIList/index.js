@@ -36,7 +36,7 @@ const CaseStudyList = () => {
   ));
   return (
     <div id="container">
-      <h1>EPI Server List</h1>
+      {/* <h1>EPI Server List</h1> */}
       <ul className="project-list">{listItems}</ul>
     </div>
   );

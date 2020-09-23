@@ -36,7 +36,7 @@ const EPIList = () => {
   ));
   return (
     <div id="container">
-      <h1>Case Study List</h1>
+      {/* <h1>Case Study List</h1> */}
       <div className="project-list">{listItems}</div>
     </div>
   );
