@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import projectAPI from "../../api/projectAPI";
 import Project from './shared/Project';
 import { useHistory } from "react-router-dom";
+import "./styles.scss";
 
 const EPIList = () => {
   const history = useHistory();
@@ -36,7 +37,7 @@ const EPIList = () => {
   return (
     <div id="container">
       <h1>Case Study List</h1>
-      <ul className="project-list">{listItems}</ul>
+      <div className="project-list">{listItems}</div>
     </div>
   );
 };
