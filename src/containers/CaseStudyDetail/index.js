@@ -5,9 +5,11 @@ import projectAPI from "../../api/projectAPI";
 const CaseStudyDetail = () => {
   let { projectID } = useParams();
   const [title1, setTitle1] = useState('');
+  const [list1, setList1] = useState([]);
   const [title2, setTitle2] = useState('');
   const [content, setContent] = useState('');
   const [title3, setTitle3] = useState('');
+  const [list3, setList3] = useState([]);
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -22,25 +24,40 @@ const CaseStudyDetail = () => {
 
   const parse = (data) => {
     setTitle1(data[0].title);
+    setList1(data[0].list);
     setTitle2(data[1].title);
     setContent(data[1].content);
     setTitle3(data[2].title);
+    setList3(data[2].list);
     setImages(data[3].images);
   }
+
+  const list1Items = list1.map((item, index) => (
+    <div>{item}</div>
+  ));
+
+  const list3Items = list3.map((item, index) => (
+    <div>{item}</div>
+  ));
 
   const baseUrl = 'https://raw.githubusercontent.com/thieumao/ShowCaseNodeJS/master/';
   return (
     <div>
       <h1>Case Study Detail {projectID}</h1>
+      <img src={baseUrl + images[2]} alt={title1} width="400" height="100" />
       <h3>{title1}</h3>
+      {list1Items}
+      <img src={baseUrl + images[3]} alt={title1} width="400" height="400" />
       <h3>{title2}</h3>
-      <h4>{content}</h4>
+      <div>{content}</div>
+      <img src={baseUrl + images[4]} alt={title1} width="400" height="400" />
       <h3>{title3}</h3>
-      <img src={baseUrl + images[0]} alt={title1} width="100" height="100" />
+      {list3Items}
+      {/* <img src={baseUrl + images[0]} alt={title1} width="100" height="100" />
       <img src={baseUrl + images[1]} alt={title1} width="100" height="100" />
       <img src={baseUrl + images[2]} alt={title1} width="100" height="100" />
       <img src={baseUrl + images[3]} alt={title1} width="100" height="100" />
-      <img src={baseUrl + images[4]} alt={title1} width="100" height="100" />
+      <img src={baseUrl + images[4]} alt={title1} width="100" height="100" /> */}
     </div>
   );
 }

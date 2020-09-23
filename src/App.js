@@ -30,11 +30,11 @@ const App = () => {
                   <b>EPI Server</b>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/topics">
                   <b>Topics</b>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </li>
         </ul>
