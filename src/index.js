@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-// import { PersistGate } from 'redux-persist/integration/react';
-// import store, { persistor } from './store';
 import store from './store';
 
 ReactDOM.render(
