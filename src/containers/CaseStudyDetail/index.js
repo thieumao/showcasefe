@@ -24,11 +24,11 @@ const CaseStudyDetail = () => {
   }, []);
 
   const parse = (data) => {
-    setTitle1(data[0].title);
+    setTitle1(data[0].title || 'THE BRIEF');
     setList1(data[0].list);
-    setTitle2(data[1].title);
+    setTitle2(data[1].title || 'THE SOLUTION');
     setContent(data[1].content);
-    setTitle3(data[2].title);
+    setTitle3(data[2].title || 'TECHNICAL DETAILS');
     setList3(data[2].list);
     setImages(data[3].images);
   }
