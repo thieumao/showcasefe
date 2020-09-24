@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { Switch, Route, Link } from "react-router-dom";
 import CaseStudyList from "../CaseStudyList";
+import { testAction } from '../../store/actionTypes/ets2020ActionType';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Introduction = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("Introduction");
+    dispatch(testAction('name', 'Thieu Mao'));
+  }, []);
+
   return (
     <p id="container">
       <h1 className="title">Introduction</h1>

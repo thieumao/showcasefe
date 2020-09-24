@@ -24,3 +24,10 @@ export const selectAnsweAction = (testName, partName, value) => ({
   partName,
   value,
 });
+
+export const TEST_ACTION = 'TEST_ACTION';
+export const testAction = (key, value) => ({
+  type: TEST_ACTION,
+  key,
+  value,
+});

@@ -1,3 +1,3 @@
-import ets2020 from './ets2020';
+import data from './data';
 
-export { ets2020 };
+export { data };
