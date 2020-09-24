@@ -15,13 +15,15 @@ const persistConfig = {
 const rootReducer = combineReducers(reducers);
 
 const sagaMiddleware = createSagaMiddleware();
-let middleware = [];
+// let middleware = [];
+// middleware = [sagaMiddleware, logger];
 
-middleware = [sagaMiddleware, logger];
+// const store = createStore(persistReducer(persistConfig, rootReducer), applyMiddleware(...middleware));
+// sagaMiddleware.run(rootSaga);
+// const store = createStore(persistReducer(persistConfig, rootReducer));
 
-const store = createStore(persistReducer(persistConfig, rootReducer), applyMiddleware(...middleware));
-sagaMiddleware.run(rootSaga);
+// export const persistor = persistStore(store);
 
-export const persistor = persistStore(store);
 
+const store = createStore(rootReducer);
 export default store;

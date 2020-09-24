@@ -1,5 +1,7 @@
 import { UPDATE_ETS2020, UPDATE_PART } from '../actionTypes/ets2020ActionType';
 
+const defaultState = {};
+
 export default function ets2020Reducer(state, action) {
   const currentState = state || defaultState;
   switch (action.type) {
