@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { Switch, Route, Link } from "react-router-dom";
 import CaseStudyList from "../CaseStudyList";
-import { testAction } from '../../store/actionTypes/ets2020ActionType';
+import { testAction, increaseAction } from '../../store/actionTypes/ets2020ActionType';
 import { useDispatch, useSelector } from 'react-redux';
+import { getNumber } from '../../store/selectors/projectSelectors';
 
 const Introduction = () => {
   const dispatch = useDispatch();
 
+  const valueNumber = useSelector(getNumber);
+
   useEffect(() => {
     console.log("Introduction");
     dispatch(testAction('name', 'Thieu Mao'));
+    dispatch(increaseAction('number', valueNumber));
   }, []);
 
   return (

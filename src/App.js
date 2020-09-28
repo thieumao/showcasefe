@@ -5,9 +5,20 @@ import CaseStudyList from "./containers/CaseStudyList";
 import EPIList from "./containers/EPIList";
 import CaseStudyDetail from "./containers/CaseStudyDetail";
 import Topics from "./containers/Topics";
+// import Splash from "./containers/Splash";
 import "./App.scss";
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getRehydrated } from './store/selectors/projectSelectors';
 
 const App = () => {
+  // const dispatch = useDispatch();
+
+  // const isRehydrated = useSelector(getRehydrated);
+
+  // if (isRehydrated == false) {
+  //   return (<Splash />);
+  // }
+
   return (
     <Router>
       <div id="menu">

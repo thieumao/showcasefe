@@ -31,3 +31,10 @@ export const testAction = (key, value) => ({
   key,
   value,
 });
+
+export const INCREASE_ACTION = 'INCREASE_ACTION';
+export const increaseAction = (key, value) => ({
+  type: INCREASE_ACTION,
+  key,
+  value,
+});
