@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import Introduction from "./containers/Introduction";
 import CaseStudyList from "./containers/CaseStudyList";
 import EPIList from "./containers/EPIList";
 import CaseStudyDetail from "./containers/CaseStudyDetail";
 import Topics from "./containers/Topics";
-// import Splash from "./containers/Splash";
+import Splash from "./containers/Splash";
 import "./App.scss";
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getRehydrated } from './store/selectors/projectSelectors';
@@ -13,11 +13,18 @@ import "./App.scss";
 const App = () => {
   // const dispatch = useDispatch();
 
-  // const isRehydrated = useSelector(getRehydrated);
+  const [isSplash, setIsSplash] = useState(true);
 
-  // if (isRehydrated == false) {
-  //   return (<Splash />);
-  // }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsSplash(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isSplash) {
+    return (<Splash />);
+  }
 
   return (
     <Router>

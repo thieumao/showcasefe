@@ -9,13 +9,13 @@ const defaultState = {
 export default function ets2020Reducer(state, action) {
   const currentState = state || defaultState;
   switch (action.type) {
-    case PERSIST_REHYDRATE: {
-      console.log('>>>>>>> PERSIST_REHYDRATE');
-      return {
-        ...state,
-        rehydrated: true
-      };
-    }
+    // case PERSIST_REHYDRATE: {
+    //   console.log('>>>>>>> PERSIST_REHYDRATE');
+    //   return {
+    //     ...state,
+    //     rehydrated: true
+    //   };
+    // }
     case INCREASE_ACTION: {
       console.log('Vao roi >>>>>> ');
       console.log(action.value);
