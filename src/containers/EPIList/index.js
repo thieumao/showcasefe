@@ -1,37 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import projectAPI from "../../api/projectAPI";
 import Project from '../../components/Project';
 import { useHistory } from "react-router-dom";
+import { updateDataAction } from '../../store/actionTypes/actionType';
+import { useDispatch, useSelector } from 'react-redux';
+import { getEPIList } from '../../store/selectors/projectSelectors';
 
-const CaseStudyList = () => {
+const EPIList = () => {
+  const dispatch = useDispatch();
+  const dataList = useSelector(getEPIList);
   const history = useHistory();
-  const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
-    console.log("CaseStudyList");
     try {
-      projectAPI.getAll().then((data) => {
-        console.log(data);
-        const caseStudies = data && data.caseStudies ? data.caseStudies : [];
-        const list = caseStudies.filter(item => item.group_mask == 1); 
-        setProjectList(list);
-      });
+      if (dataList.length == 0) {
+        projectAPI.getAll().then((data) => {
+          const caseStudies = data && data.caseStudies ? data.caseStudies : [];
+          const list = caseStudies.filter(item => item.group_mask == 1); 
+          dispatch(updateDataAction('EPIList', list));
+        });
+      }
     } catch (error) {}
   }, []);
 
-  const itemClick = (item, index) => {
-    console.log(index);
-    console.log(item);
-    history.push(`/detail/${item.id}`);
-  }
+  const itemClick = (item, index) => history.push(`/detail/${item.id}`);
 
-  // group_mask: 2
-  // id: "cs_other1"
-  // img: "http://ncs.niteco.se/boncom/ipad-image.png"
-  // link: "http://ncs.niteco.se/boncom/"
-  // name: "boncom"
-  // tags: ["boncom"]
-  const listItems = projectList.map((item, index) => (
+  const listItems = dataList.map((item, index) => (
     <Project project={item} onPress={() => itemClick(item, index)} key={`${index}`}/>
   ));
   return (
@@ -42,4 +36,4 @@ const CaseStudyList = () => {
   );
 };
 
-export default CaseStudyList;
+export default EPIList;
