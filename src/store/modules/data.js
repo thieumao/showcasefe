@@ -1,4 +1,4 @@
-import { UPDATE_ETS2020, UPDATE_PART, TEST_ACTION, INCREASE_ACTION } from '../actionTypes/ets2020ActionType';
+import { UPDATE_ETS2020, UPDATE_PART, UPDATE_DATA_ACTION, TEST_ACTION, INCREASE_ACTION } from '../actionTypes/actionType';
 import { PERSIST_REHYDRATE } from 'redux-offline/lib/constants';
 
 const defaultState = {
@@ -16,6 +16,18 @@ export default function ets2020Reducer(state, action) {
     //     rehydrated: true
     //   };
     // }
+    case UPDATE_DATA_ACTION: {
+      if (action.key) {
+        return {
+          ...state,
+          [action.key]: action.value,
+        };
+      }
+      return {
+        ...state,
+        ...action.value,
+      };
+    }
     case INCREASE_ACTION: {
       console.log('Vao roi >>>>>> ');
       console.log(action.value);
@@ -31,8 +43,6 @@ export default function ets2020Reducer(state, action) {
       };
     }
     case TEST_ACTION: {
-      console.log('Vao roi');
-      console.log(action.value);
       if (action.key) {
         return {
           ...state,

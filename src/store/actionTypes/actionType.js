@@ -25,6 +25,13 @@ export const selectAnsweAction = (testName, partName, value) => ({
   value,
 });
 
+export const UPDATE_DATA_ACTION = 'UPDATE_DATA_ACTION';
+export const updateDataAction = (key, value) => ({
+  type: UPDATE_DATA_ACTION,
+  key,
+  value,
+});
+
 export const TEST_ACTION = 'TEST_ACTION';
 export const testAction = (key, value) => ({
   type: TEST_ACTION,

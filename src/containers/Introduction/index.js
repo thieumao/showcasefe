@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { Switch, Route, Link } from "react-router-dom";
 import CaseStudyList from "../CaseStudyList";
-import { testAction, increaseAction } from '../../store/actionTypes/ets2020ActionType';
+import { testAction, increaseAction } from '../../store/actionTypes/actionType';
 import { useDispatch, useSelector } from 'react-redux';
 import { getNumber } from '../../store/selectors/projectSelectors';
 import {
