@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import projectAPI from "../../api/projectAPI";
-import Project from './shared/Project';
+import Project from '../../components/Project';
 import { useHistory } from "react-router-dom";
 import "./styles.scss";
 
@@ -32,7 +32,7 @@ const EPIList = () => {
   // name: "boncom"
   // tags: ["boncom"]
   const listItems = projectList.map((item, index) => (
-    <Project project={item} onPress={() => itemClick(item, index)} />
+    <Project project={item} onPress={() => itemClick(item, index)} key={`${index}`} />
   ));
   return (
     <div id="container">
