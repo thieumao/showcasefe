@@ -32,6 +32,13 @@ export const updateDataAction = (key, value) => ({
   value,
 });
 
+export const ADD_PROJECT_ACTION = 'ADD_PROJECT_ACTION';
+export const addProjectAction = (key, value) => ({
+  type: ADD_PROJECT_ACTION,
+  key,
+  value,
+});
+
 export const TEST_ACTION = 'TEST_ACTION';
 export const testAction = (key, value) => ({
   type: TEST_ACTION,

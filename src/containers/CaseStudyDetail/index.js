@@ -2,9 +2,17 @@ import React, { useEffect, useState }  from 'react';
 import { useParams } from "react-router-dom";
 import projectAPI from "../../api/projectAPI";
 import "./styles.scss";
+import { addProjectAction } from '../../store/actionTypes/actionType';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDetail } from '../../store/selectors/projectSelectors';
 
 const CaseStudyDetail = () => {
+  const dispatch = useDispatch();
+
   let { projectID } = useParams();
+
+  const detail = useSelector(getDetail(projectID)) || [];
+
   const [title1, setTitle1] = useState('');
   const [list1, setList1] = useState([]);
   const [title2, setTitle2] = useState('');
@@ -15,12 +23,17 @@ const CaseStudyDetail = () => {
 
   useEffect(() => {
     console.log("CaseStudyDetail");
-    try {
-      projectAPI.get(projectID).then(data => {
-        console.log(data);
-        parse(data);
-      });
-    } catch (error) {}
+    if (detail.length == 0) {
+      try {
+        projectAPI.get(projectID).then(data => {
+          console.log(data);
+          dispatch(addProjectAction(projectID, data));
+          parse(data);
+        });
+      } catch (error) {}
+    } else {
+      parse(detail);
+    }
   }, []);
 
   const parse = (data) => {

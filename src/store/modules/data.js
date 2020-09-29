@@ -1,4 +1,4 @@
-import { UPDATE_ETS2020, UPDATE_PART, UPDATE_DATA_ACTION, TEST_ACTION, INCREASE_ACTION } from '../actionTypes/actionType';
+import { UPDATE_ETS2020, UPDATE_PART, ADD_PROJECT_ACTION, UPDATE_DATA_ACTION, TEST_ACTION, INCREASE_ACTION } from '../actionTypes/actionType';
 import { PERSIST_REHYDRATE } from 'redux-offline/lib/constants';
 
 const defaultState = {
@@ -16,6 +16,15 @@ export default function ets2020Reducer(state, action) {
     //     rehydrated: true
     //   };
     // }
+    case ADD_PROJECT_ACTION: {
+      return {
+        ...state,
+        details: {
+          ...state.details,
+          [action.key]: action.value
+        }
+      };
+    }
     case UPDATE_DATA_ACTION: {
       if (action.key) {
         return {
